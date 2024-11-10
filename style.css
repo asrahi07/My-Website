@@ -1,62 +1,14 @@
-/* styles.css */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    margin: 0;
     font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
 }
 
-.spinner {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    transform: rotate(0deg);
-    cursor: pointer;
-    transition: transform 0.1s ease-out; /* Smooth transition */
+h1 {
+    color: #333;
 }
 
-.spinner-part {
-    position: absolute;
-    width: 40px;
-    height: 10px;
-    background-color: #3498db;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#part1 {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0) rotate(45deg);
-}
-
-#part2 {
-    top: 50%;
-    left: 0;
-    transform: translate(0, -50%) rotate(45deg);
-}
-
-#part3 {
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%) rotate(45deg); 
-}
-
-.center {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #e74c3c;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Fun hover effect */
-.spinner:hover .spinner-part {
-    background-color: #e74c3c; /* Change color on hover */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
 }
