@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funny Spinning Wheel</title>
+    <title>Funny Lottery Wheel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Spin the Funny Wheel!</h1>
-        <div class="wheel" id="wheel">
-            <div class="wheel-section" style="background-color: #ff7675;">Why don't skeletons fight each other?</div>
-            <div class="wheel-section" style="background-color: #55efc4;">What do you call fake spaghetti?</div>
-            <div class="wheel-section" style="background-color: #74b9ff;">Why don’t eggs tell jokes?</div>
-            <div class="wheel-section" style="background-color: #a29bfe;">What do you call a bear with no teeth?</div>
-            <div class="wheel-section" style="background-color: #ffeaa7;">Why did the bicycle fall over?</div>
-            <div class="wheel-section" style="background-color: #fdcb6e;">Why can’t your nose be 12 inches long?</div>
+        <h1>Spin the Funny Lottery Wheel!</h1>
+        <div class="wheel-container">
+            <div class="pointer"></div>
+            <div class="wheel" id="wheel">
+                <div class="wheel-section" style="--rotate: 0deg;">Why don't skeletons fight each other?</div>
+                <div class="wheel-section" style="--rotate: 60deg;">What do you call fake spaghetti?</div>
+                <div class="wheel-section" style="--rotate: 120deg;">Why don’t eggs tell jokes?</div>
+                <div class="wheel-section" style="--rotate: 180deg;">What do you call a bear with no teeth?</div>
+                <div class="wheel-section" style="--rotate: 240deg;">Why did the bicycle fall over?</div>
+                <div class="wheel-section" style="--rotate: 300deg;">Why can’t your nose be 12 inches long?</div>
+            </div>
         </div>
         <button id="spinButton">Spin the Wheel!</button>
         <p id="funnyMessage"></p>
