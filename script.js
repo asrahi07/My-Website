@@ -15,13 +15,17 @@ const messages = [
 
 // Spin the wheel when the button is clicked
 spinButton.addEventListener('click', () => {
-    const randomSpin = Math.floor(Math.random() * 360) + 5000; // Random spin amount + minimum of 5000 degrees
+    const totalSections = messages.length;
+    const randomSpin = Math.floor(Math.random() * 360) + (360 * 5); // Random spin with minimum of 5 full rotations
+    const sectionAngle = 360 / totalSections;
+
     wheel.style.transform = `rotate(${randomSpin}deg)`; // Apply spin
 
-    // Show a message after the spin ends
+    // After spin ends, show a random message
     setTimeout(() => {
-        const selectedIndex = Math.floor(((randomSpin % 360) / 60)); // Divide by 60 degrees per section
-        const selectedMessage = messages[selectedIndex];
-        funnyMessage.textContent = selectedMessage;
-    }, 3000); // Wait for 3 seconds (matching spin duration)
+        const finalRotation = randomSpin % 360; // Get final position within one rotation
+        const selectedIndex = Math.floor((totalSections - finalRotation / sectionAngle) % totalSections); // Find index
+
+        funnyMessage.textContent = messages[selectedIndex];
+    }, 3000); // Wait for 3 seconds (spin duration)
 });
