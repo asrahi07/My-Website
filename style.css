@@ -5,22 +5,23 @@
     box-sizing: border-box;
 }
 
-/* Body and container setup */
+/* Background and container setup */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #2d3436;
+    color: white;
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: #dfe6e9;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -28,8 +29,9 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Spin button */
 button {
-    background-color: #3498db;
+    background-color: #0984e3;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -41,45 +43,41 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #74b9ff;
 }
 
-/* Spinning wheel */
+/* Spinning wheel setup */
 .wheel {
     position: relative;
     width: 300px;
     height: 300px;
     margin: 20px auto;
     border-radius: 50%;
-    border: 10px solid #3498db;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
+    border: 10px solid #0984e3;
     overflow: hidden;
     transform: rotate(0deg);
     transition: transform 3s ease-out;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .wheel-section {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    flex: 1 0 50%; /* Divide into 6 sections */
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform-origin: center;
-    font-size: 18px;
-    color: #333;
+    font-size: 14px;
+    color: white;
     font-weight: bold;
-    padding: 10px;
     text-align: center;
+    padding: 10px;
 }
 
-/* Fun text below */
+/* Fun message display */
 p {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
-    color: #e74c3c;
+    color: #d63031;
 }
