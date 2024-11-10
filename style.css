@@ -46,35 +46,64 @@ button:hover {
     background-color: #74b9ff;
 }
 
-/* Spinning wheel setup */
-.wheel {
+/* Wheel container and pointer */
+.wheel-container {
     position: relative;
     width: 300px;
     height: 300px;
     margin: 20px auto;
+}
+
+.pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #e74c3c;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Spinning wheel setup */
+.wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    border: 10px solid #0984e3;
     overflow: hidden;
     transform: rotate(0deg);
     transition: transform 3s ease-out;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .wheel-section {
-    flex: 1 0 50%; /* Divide into 6 sections */
+    position: absolute;
+    width: 50%;
     height: 50%;
+    background-color: #0984e3;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
     text-align: center;
+    transform-origin: 100% 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transform: rotate(var(--rotate)) skewY(-30deg);
     padding: 10px;
 }
 
-/* Fun message display */
+/* Color variations */
+.wheel-section:nth-child(2) { background-color: #fdcb6e; }
+.wheel-section:nth-child(3) { background-color: #74b9ff; }
+.wheel-section:nth-child(4) { background-color: #55efc4; }
+.wheel-section:nth-child(5) { background-color: #ffeaa7; }
+.wheel-section:nth-child(6) { background-color: #a29bfe; }
+
+/* Message display */
 p {
     margin-top: 20px;
     font-size: 18px;
