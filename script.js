@@ -3,7 +3,7 @@ const spinButton = document.getElementById('spinButton');
 const wheel = document.getElementById('wheel');
 const funnyMessage = document.getElementById('funnyMessage');
 
-// Funny messages for the wheel sections
+// Funny messages for each wheel section
 const messages = [
     "Why don't skeletons fight each other? They don't have the guts!",
     "What do you call fake spaghetti? An impasta!",
@@ -18,9 +18,10 @@ spinButton.addEventListener('click', () => {
     const randomSpin = Math.floor(Math.random() * 360) + 5000; // Random spin amount + minimum of 5000 degrees
     wheel.style.transform = `rotate(${randomSpin}deg)`; // Apply spin
 
-    // After the wheel stops spinning, show a random message
+    // Show a message after the spin ends
     setTimeout(() => {
-        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        funnyMessage.textContent = randomMessage;
+        const selectedIndex = Math.floor(((randomSpin % 360) / 60)); // Divide by 60 degrees per section
+        const selectedMessage = messages[selectedIndex];
+        funnyMessage.textContent = selectedMessage;
     }, 3000); // Wait for 3 seconds (matching spin duration)
 });
