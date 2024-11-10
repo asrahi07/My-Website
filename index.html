@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rolling Spinner</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Spinning Wheel</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="spinner" id="spinner">
-<div class="spinner-part" id="part1"></div>
-<div class="spinner-part" id="part2"></div>
-<div class="spinner-part" id="part3"></div>
-<div class="center"></div>
-</div>
-<script src="script.js"></script>
+    <header>
+        <h1>Lottery Spinning Wheel</h1>
+    </header>
+    <main>
+        <div class="wheel-container">
+            <div class="wheel" id="wheel">
+                <div class="slice">🍀</div>
+                <div class="slice">🎉</div>
+                <div class="slice">🎁</div>
+                <div class="slice">💰</div>
+                <div class="slice">🎊</div>
+                <div class="slice">🌟</div>
+            </div>
+            <button id="spinButton">Spin the Wheel!</button>
+        </div>
+        <div id="quoteDisplay"></div>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
