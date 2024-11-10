@@ -6,19 +6,6 @@ const quotes = [
     "You are never too old to set another goal or to dream a new dream."
 ];
 
-function displayRandomQuote() {
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById("quoteDisplay").innerText = randomQuote;
-}
-
-// Change quote every minute (60000 milliseconds)
-setInterval(displayRandomQuote, 60000);
-
-// Display the first quote immediately
-displayRandomQuote();
-
-document.getElementById("spinButton").addEventListener("click", function() {
-    const wheel = document.getElementById("wheel");
-    const randomDegree = Math.floor(Math.random() * 360 + 720); // Spin at least 2 full rotations
-    wheel.style.transform = `rotate(${randomDegree}deg)`;
-});
+const results = [
+    "You won a free coffee! ☕",
+    "You won a gift card
