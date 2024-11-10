@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Funny Spinning Wheel</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a basic website created with HTML, CSS, and JavaScript.</p>
-    <button onclick="displayMessage()">Click Me</button>
+    <div class="container">
+        <h1>Spin the Funny Wheel!</h1>
+        <div class="wheel" id="wheel">
+            <div class="wheel-section">Why don't skeletons fight each other?</div>
+            <div class="wheel-section">What do you call fake spaghetti?</div>
+            <div class="wheel-section">Why don’t eggs tell jokes?</div>
+            <div class="wheel-section">What do you call a bear with no teeth?</div>
+            <div class="wheel-section">Why did the bicycle fall over?</div>
+            <div class="wheel-section">Why can’t your nose be 12 inches long?</div>
+        </div>
+        <button id="spinButton">Spin the Wheel!</button>
+        <p id="funnyMessage"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
