@@ -1,31 +1,57 @@
-// JavaScript for the spinning wheel functionality
-const spinButton = document.getElementById('spinButton');
-const wheel = document.getElementById('wheel');
-const funnyMessage = document.getElementById('funnyMessage');
-
-// Funny messages for each wheel section
-const messages = [
-    "Why don't skeletons fight each other? They don't have the guts!",
-    "What do you call fake spaghetti? An impasta!",
-    "Why don’t eggs tell jokes? They might crack up!",
-    "What do you call a bear with no teeth? A gummy bear!",
-    "Why did the bicycle fall over? It was two-tired!",
-    "Why can’t your nose be 12 inches long? Because then it would be a foot!"
-];
-
-// Spin the wheel when the button is clicked
-spinButton.addEventListener('click', () => {
-    const totalSections = messages.length;
-    const randomSpin = Math.floor(Math.random() * 360) + (360 * 5); // Random spin with minimum of 5 full rotations
-    const sectionAngle = 360 / totalSections;
-
-    wheel.style.transform = `rotate(${randomSpin}deg)`; // Apply spin
-
-    // After spin ends, show a random message
-    setTimeout(() => {
-        const finalRotation = randomSpin % 360; // Get final position within one rotation
-        const selectedIndex = Math.floor((totalSections - finalRotation / sectionAngle) % totalSections); // Find index
-
-        funnyMessage.textContent = messages[selectedIndex];
-    }, 3000); // Wait for 3 seconds (spin duration)
+// script.js
+let isRolling = false;
+let lastX = 0;
+let rotation = 0;
+let lastDeltaX = 0; // Store the last delta for inertia
+let inertia = 0; // Inertia value
+const spinner = document.getElementById('spinner');
+// Mouse events
+spinner.addEventListener('mousedown', (event) => {
+isRolling = true;
+lastX = event.clientX;
+// Add mousemove event listener
+document.addEventListener('mousemove', rollSpinner);
 });
+document.addEventListener('mouseup', () => {
+isRolling = false;
+document.removeEventListener('mousemove', rollSpinner);
+applyInertia(); // Start inertia effect
+});
+// Touch events
+spinner.addEventListener('touchstart', (event) => {
+isRolling = true;
+lastX = event.touches[0].clientX;
+// Add touchmove event listener
+document.addEventListener('touchmove', rollSpinner);
+});
+document.addEventListener('touchend', () => {
+isRolling = false;
+document.removeEventListener('touchmove', rollSpinner);
+applyInertia(); // Start inertia effect
+});
+function rollSpinner(event) {
+if (!isRolling) return;
+let clientX;// Check if it's a mouse event or a touch event
+if (event.type === 'mousemove') {
+clientX = event.clientX;
+} else if (event.type === 'touchmove') {
+clientX = event.touches[0].clientX;
+}
+const deltaX = clientX - lastX;
+rotation += deltaX * 1.5; // Adjust this value for sensitivity
+spinner.style.transform = `rotate(${rotation}deg)`;
+lastDeltaX = deltaX; // Store the last delta for inertia
+lastX = clientX;
+}
+function applyInertia() {
+inertia = lastDeltaX * 0.5; // Set initial inertia based on last movement
+const inertiaInterval = setInterval(() => {
+if (Math.abs(inertia) < 0.1) {
+clearInterval(inertiaInterval); // Stop if inertia is too low
+return;
+}
+rotation += inertia; // Apply inertia to rotation
+spinner.style.transform = `rotate(${rotation}deg)`;
+inertia *= 0.95; // Gradually reduce inertia
+}, 16); // Approximately 60 frames per second
+}
